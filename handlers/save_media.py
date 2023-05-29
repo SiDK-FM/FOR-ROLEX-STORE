@@ -31,7 +31,7 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
             )
         return await forward_to_channel(bot, message, editable)
 
-@StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo)) | filters.user(Config.BOT_OWNER)
+@Bot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo)) | filters.user(Config.BOT_OWNER)
 async def save_batch_media_in_channel(bot: Client, editable: Message, message_ids: list):
     try:
         message_ids_str = ""
