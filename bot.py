@@ -48,13 +48,13 @@ Bot = Client(
     api_hash=Config.API_HASH
 )
 
-
+ 
 @Bot.on_message(filters.private)
 async def _(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
 
 
-@Bot.on_message(filters.command("start") & filters.private & filters.user(Config.BOT_OWNER))
+@Bot.on_message(filters.command("start") & filters.private)
 async def start(bot: Client, cmd: Message):
 
     if cmd.from_user.id in Config.BANNED_USERS:
